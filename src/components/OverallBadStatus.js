@@ -20,7 +20,7 @@ const StatusWrapper = styled.div`
 `
 const Status = styled.div`
     padding: 1rem 1.5rem;
-    font-size: 1.4em;
+    font-size: 2em;
     font-weight: 600;
     display: grid;
     grid-template-columns: 1fr 1fr;
