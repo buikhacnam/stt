@@ -1,6 +1,8 @@
 import React , {useContext} from 'react'
 import OverallStatement from '../components/OverallStatement'
 import AllSystemsStatus from '../components/AllSystemsStatus'
+import AllRegionsStatus from '../components/AllRegionsStatus'
+import Incidents from '../components/Incidents'
 import {StatusContext} from '../contexts/AppContexts'
 import styled from 'styled-components'
 import { Spin } from 'antd';
@@ -16,24 +18,44 @@ export default function Home() {
                 </SpinStyle>  
             </SpinWrapper>
             :
-            <MainContainer>
+            <Container>
                 <OverallStatement />
-                <AllSystemsStatus />
-            </MainContainer>
+                <MainContainer>
+                    <ContentWrapper>
+                        <Incidents />
+                        <AllSystemsStatus />
+                        <AllRegionsStatus />
+                    </ContentWrapper>
+                </MainContainer>
+            </Container>
         }
         </>
     )
 }
 
+const Container = styled.div `
+    padding-top: 2rem;
+    display: grid;
+    justify-content: center;
+    width: 90vw;
+    margin: 0 auto;
+`
+
 const MainContainer = styled.div`
-  margin: 0 auto;
-  width: 60vw;
+  display: grid;
+  justify-content: center;
   padding-top: 3rem;
   padding-bottom: 2rem;
-  @media (max-width: 600px) {
-    width: 90vw;
-  }
 
+`
+const ContentWrapper = styled.div`
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    gap: 2rem;
+    @media (max-width: 700px) {
+        grid-template: none;
+    }
+   
 `
 
 const SpinWrapper = styled.div`

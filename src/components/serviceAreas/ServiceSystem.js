@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, {useContext} from 'react';
 import { Card } from 'antd';
-import { CheckCircleOutlined, WarningOutlined } from '@ant-design/icons';
+import { CheckOutlined, WarningOutlined } from '@ant-design/icons';
 import styled from 'styled-components';
 
 export default function Admin({system}) {
@@ -11,8 +11,8 @@ export default function Admin({system}) {
             {system.isGood? 
                 <Card 
                     type="inner" 
-                    title={<a href={system.link} target="_blank" rel="noreferrer">{system.name}</a>}
-                    extra={<CheckCircleOutlined style={{color:"#7ED321",}}/>}
+                    title={<a href={system.link} target="_blank" rel="noreferrer" style={{color: '#282C70'}}>{system.name}</a>}
+                    extra={<CheckOutlined style={{color:"#7ED321",}}/>}
                     hoverable
                     style={{cursor: 'default'}}
                 >
