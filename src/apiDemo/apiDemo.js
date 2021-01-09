@@ -72,29 +72,29 @@ export const apiDemo = {
             name: 'NYC2',
             isGood: true,
         },
-        NYC3: {
-            name: 'NYC3',
-            isGood: true,
-        },
-        SFO1: {
-            name: 'SF01',
-            isGood: true,
-        },
-        SFO2: {
-            name: 'SF02',
-            isGood: true,
-        },
-        SFO3: {
-            name: 'SF03',
-            isGood: true,
-        },
-        SGP1: {
-            name: 'SGP1',
-            isGood: true,
-        },
-        TOR1: {
-            name: 'TOR1',
-            isGood: true,
-        },
+        // NYC3: {
+        //     name: 'NYC3',
+        //     isGood: true,
+        // },
+        // SFO1: {
+        //     name: 'SF01',
+        //     isGood: true,
+        // },
+        // SFO2: {
+        //     name: 'SF02',
+        //     isGood: true,
+        // },
+        // SFO3: {
+        //     name: 'SF03',
+        //     isGood: true,
+        // },
+        // SGP1: {
+        //     name: 'SGP1',
+        //     isGood: true,
+        // },
+        // TOR1: {
+        //     name: 'TOR1',
+        //     isGood: true,
+        // },
     },       
 }
