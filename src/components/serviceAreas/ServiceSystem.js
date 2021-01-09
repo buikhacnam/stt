@@ -20,7 +20,7 @@ export default function Admin({system}) {
                         <div>
                             No known issues
                         </div>
-                        <Operational style={{color: '#7ED321'}}>
+                        <Operational style={{color: '#71BF60'}}>
                             <p>Operational</p>
                         </Operational>
                     </CardContent>

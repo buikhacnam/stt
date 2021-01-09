@@ -19,10 +19,13 @@ const StatusWrapper = styled.div`
     border-radius: 3px;
 `
 const Status = styled.div`
-    padding: 1rem 1.5rem;
-    font-size: 2em;
+    padding: 0.8rem 1.5rem;
+    font-size: 1.8rem;
     font-weight: 600;
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-content: 'space-between';
+    @media (max-width: 700px) {
+        font-size: 1.4rem;
+    }
 `

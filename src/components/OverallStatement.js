@@ -17,6 +17,5 @@ export default function OverallStatement() {
 
 const OverallStatementStyled = styled.div`
     margin: 0 auto;
-    margin-bottom: 0.5rem;
     width: 100%;
 `
