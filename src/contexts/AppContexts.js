@@ -125,8 +125,8 @@ export default function AppContexts({ children }) {
 
     useEffect(() => {
         let isAllSystemsGood = (allSystems.every(system => (system.isGood)));
-        let isAllRegionsGood = (allRegions.every(region => (region.isGood)));
-        if(isAllSystemsGood && isAllRegionsGood) {
+       // let isAllRegionsGood = (allRegions.every(region => (region.isGood)));
+        if(isAllSystemsGood) {
             setAllSystemsStatus(() => {
                 return {isGood: true}
             })
