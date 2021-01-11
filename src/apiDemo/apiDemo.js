@@ -35,7 +35,16 @@ export const apiDemo = {
 
         title: 'Issues Impacting Cloud Control Panel',
 
-        description: 'Resolved - Our engineers have resolved the issue impacting internal DNS resolution and Cloud Control Panel functionality, and all services/features should now be functioning normally. Thank you for your patience throughout this process. If you notice any further problems, please open a Support ticket right away.',
+        summary: 'Resolved - Our engineers have resolved the issue impacting internal DNS resolution and Cloud Control Panel functionality, and all services/features should now be functioning normally. Thank you for your patience throughout this process. If you notice any further problems, please open a Support ticket right away.',
+
+        discription: `Resolved
+        Our engineers have resolved the issue impacting internal DNS resolution and Cloud Control Panel functionality, and all services/features should now be functioning normally. Thank you for your patience throughout this process. If you notice any further problems, please open a Support ticket right away.
+        Posted 4 days ago. Jan 06, 2021 - 17:04 UTC
+        Monitoring
+        Our engineers have implemented a fix for the issue impacting internal DNS resolution and Cloud Control Panel functionality, and are monitoring the situation closely. We will share another update once we're confident that this is fully resolved.
+        Posted 4 days ago. Jan 06, 2021 - 16:24 UTC
+        Identified
+        Our engineering team is currently investigating an issue impacting internal DNS resolution and Cloud Control Panel functionality. During this period, users may experience intermittent errors when using certain features of our Cloud Control Panel. These features may include the Volumes and Spaces tabs within Cloud, as well as Droplet graphs. We apologize for the inconvenience, and we'll share an update once more information is available.`
 
     },
    
