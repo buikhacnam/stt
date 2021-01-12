@@ -7,6 +7,16 @@ import axios from 'axios';
 export const StatusContext = createContext();
 const { Provider } = StatusContext;
 
+//crisp API config
+const crispConfig = {
+    method: 'get',
+    url: 'https://api.crisp.chat/v1/website/7cd1799e-e8eb-476e-8cb7-33778fc41c2a',
+    headers: { 
+      'Authorization': 'Basic OTEyYTFmMTktZDJjYi00YzQ0LWJiNTQtNjZhMmJiN2FlNTllOjNiNDBhZGEwOWQ5ZmIyMmUxMmU4MjI0ZDY1MGFhNDdkYzRmNDFlZjlmNWNhZWJlMWE4YTM5ZmQwYjlhYmM3OTg=', 
+      'Cookie': '__cfduid=dfa91d9b499ce131a929589bf71fa98cb1610461358'
+    }
+};
+
 export default function AppContexts({ children }) {
    //main
     const [application, setApplication] = useState({isGood: true,
@@ -23,7 +33,7 @@ export default function AppContexts({ children }) {
         loading: true,});
     const [support, setSupport] = useState({isGood: true,
         name: "Live Support", 
-        link: 'https://app.crisp.chat/website/7cd1799e-e8eb-476e-8cb7-33778fc41c2a/inbox/',
+        link: crispConfig,
         loading: true,});
     // incident
     const [incident, setIncident] = useState({})
@@ -56,6 +66,7 @@ export default function AppContexts({ children }) {
 
         axios(corsAnywhere + application.link)
             .then(function (response) {
+                console.log('response', response);
             if (response.statusText === 'OK'){
                 setApplication(prev => {
                     return {...prev, isGood: true, loading: false, }
@@ -75,6 +86,7 @@ export default function AppContexts({ children }) {
 
         axios(corsAnywhere + dashboard.link)
             .then(function (response) {
+                console.log('response', response);
             if (response.statusText === 'OK'){
                 setDashboard(prev => {
                     return {...prev, isGood: true, loading: false, }
@@ -91,28 +103,10 @@ export default function AppContexts({ children }) {
                 return {...prev, isGood: false, loading: false, }
             })
             });
-
-        axios(corsAnywhere + website.link)
-            .then(function (response) {
-            if (response.statusText === 'OK'){
-                setWebsite(prev => {
-                    return {...prev, isGood: true, loading: false, }
-                })
-            } else {
-                setWebsite(prev => {
-                    return {...prev, isGood: false, loading: false, }
-                })
-            }
-            })
-            .catch(function (error) {
-            console.log(error);
-            setWebsite(prev => {
-                return {...prev, isGood: false, loading: false, }
-            })
-            });
         
         axios(corsAnywhere + support.link)
             .then(function (response) {
+                console.log('response', response);
             if (response.statusText === 'OK'){
                 setSupport(prev => {
                     return {...prev, isGood: true, loading: false, }
@@ -126,6 +120,26 @@ export default function AppContexts({ children }) {
             .catch(function (error) {
             console.log(error);
             setSupport(prev => {
+                return {...prev, isGood: false, loading: false, }
+            })
+            });
+        
+        axios(corsAnywhere + website.link)
+            .then(function (response) {
+                console.log('response', response);
+            if (response.statusText === 'OK'){
+                setWebsite(prev => {
+                    return {...prev, isGood: true, loading: false, }
+                })
+            } else {
+                setWebsite(prev => {
+                    return {...prev, isGood: false, loading: false, }
+                })
+            }
+            })
+            .catch(function (error) {
+            console.log(error);
+            setWebsite(prev => {
                 return {...prev, isGood: false, loading: false, }
             })
             });
@@ -189,12 +203,8 @@ export default function AppContexts({ children }) {
 
         // setTOR1(() => {
         //     return {...apiDemo.regions.TOR1}
-        // });
-
-            
-        }
-        
-    , [])
+        // });        
+    }, [])
 
     useEffect(() => {   
         let isAllSystemsLoaded = (allSystems.every(system => !(system.loading)));
