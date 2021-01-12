@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable no-unused-vars */
 import React, {useContext} from 'react';
 import { Card } from 'antd';
@@ -11,9 +12,8 @@ export default function Admin({system}) {
             {system.isGood? 
                 <Card 
                     type="inner" 
-                    title={<a href={system.link} target="_blank" rel="noreferrer" style={{color: '#282C70'}}>{system.name}</a>}
+                    title={<a href='#' style={{'cursor': 'default', 'color': '#282C70'}}>{system.name}</a>}
                     extra={<CheckOutlined style={{color:"#7ED321",}}/>}
-                    hoverable
                     style={{cursor: 'default'}}
                 >
                     <CardContent>
@@ -30,7 +30,6 @@ export default function Admin({system}) {
                     type="inner" 
                     title={system.name} 
                     extra={<WarningOutlined style={{color:"#B98900",}}/>}
-                    hoverable
                     style={{cursor: 'default'}}
                 >
                     <CardContent>
@@ -38,7 +37,7 @@ export default function Admin({system}) {
                             The system is being maintenanced
                         </div>
                         <Operational style={{color: '#B98900'}}>
-                            <p>Maintenance</p>
+                          <p>Maintenance</p>
                         </Operational>
                     </CardContent>
                 </Card> 

@@ -5,28 +5,32 @@
 //this is the demo API
 export const apiDemo = {
     
-    main: {
-        application: {
-            isGood: true,
-            name: "Application", 
-            link:"https://apps.pagefly.io/",
-        },
-        dashboard: {
-            isGood: true,
-            name: "Dashboard", 
-            link: "https://apps.pagefly.io/",
-        },
-        website: {
-            isGood: true,
-            name: "Website", 
-            link: 'https://pagefly.io/',
-        },
-        support: {
-            isGood: true,
-            name: "Live Support", 
-            link: 'https://help.pagefly.io/',
-        },
-    },
+    // main: {
+    //     application: {
+    //         isGood: true,
+    //         name: "Application", 
+    //         link:"https://apps.pagefly.io/",
+    //         loading: true,
+    //     },
+    //     dashboard: {
+    //         isGood: true,
+    //         name: "Dashboard", 
+    //         link: "https://apps.pagefly.io/",
+    //         loading: true,
+    //     },
+    //     website: {
+    //         isGood: true,
+    //         name: "Website", 
+    //         link: 'https://pagefly.io/',
+    //         loading: true,
+    //     },
+    //     support: {
+    //         isGood: true,
+    //         name: "Live Support", 
+    //         link: 'https://help.pagefly.io/',
+    //         loading: true,
+    //     },
+    // },
 
     incident: {
         hasIncident: true,

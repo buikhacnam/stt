@@ -1,16 +1,30 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 import React, {createContext, useState, useEffect}from 'react';
 import { apiDemo } from '../apiDemo/apiDemo';
+import axios from 'axios';
 
 export const StatusContext = createContext();
 const { Provider } = StatusContext;
 
 export default function AppContexts({ children }) {
    //main
-    const [application, setApplication] = useState({});
-    const [dashboard, setDashboards] = useState({});
-    const [website, setWebsite] = useState({});
-    const [support, setSupport] = useState({});
+    const [application, setApplication] = useState({isGood: true,
+        name: "Application", 
+        link:"https://apps.pagefly.io/",
+        loading: true,});
+    const [dashboard, setDashboard] = useState({isGood: true,
+        name: "Dashboard", 
+        link: "https://help.pagefly.io/",
+        loading: true,});
+    const [website, setWebsite] = useState({isGood: true,
+        name: "Website", 
+        link: 'https://pagefly.io/',
+        loading: true,});
+    const [support, setSupport] = useState({isGood: true,
+        name: "Live Support", 
+        link: 'https://app.crisp.chat/website/7cd1799e-e8eb-476e-8cb7-33778fc41c2a/inbox/',
+        loading: true,});
     // incident
     const [incident, setIncident] = useState({})
     //regions
@@ -38,108 +52,169 @@ export default function AppContexts({ children }) {
     // cut off: SFO1, SFO2, SFO3, SGP1, TOR1, NYC3
 
     useEffect(() => {
-        //Fetch demo API:
-        setTimeout(function fetchApi(){
-            setDashboards(() => {
-                return {...apiDemo.main.dashboard};
-            });
+        const corsAnywhere = 'https://cors-anywhere.herokuapp.com/';
 
-            setApplication(() => {
-                return {...apiDemo.main.application};
-            });
-
-            setWebsite(() => {
-                return {...apiDemo.main.website};
-            });
-
-            setSupport(() => {
-                return {...apiDemo.main.support};
-            });
-
-
-            setIncident(() => {
-                return {...apiDemo.incident}
+        axios(corsAnywhere + application.link)
+            .then(function (response) {
+            if (response.statusText === 'OK'){
+                setApplication(prev => {
+                    return {...prev, isGood: true, loading: false, }
+                })
+            } else {
+                setApplication(prev => {
+                    return {...prev, isGood: false, loading: false, }
+                })
+            }
             })
+            .catch(function (error) {
+            console.log(error);
+            setApplication(prev => {
+                return {...prev, isGood: false, loading: false, }
+            })
+            });
+
+        axios(corsAnywhere + dashboard.link)
+            .then(function (response) {
+            if (response.statusText === 'OK'){
+                setDashboard(prev => {
+                    return {...prev, isGood: true, loading: false, }
+                })
+            } else {
+                setDashboard(prev => {
+                    return {...prev, isGood: false, loading: false, }
+                })
+            }
+            })
+            .catch(function (error) {
+            console.log(error);
+            setDashboard(prev => {
+                return {...prev, isGood: false, loading: false, }
+            })
+            });
+
+        axios(corsAnywhere + website.link)
+            .then(function (response) {
+            if (response.statusText === 'OK'){
+                setWebsite(prev => {
+                    return {...prev, isGood: true, loading: false, }
+                })
+            } else {
+                setWebsite(prev => {
+                    return {...prev, isGood: false, loading: false, }
+                })
+            }
+            })
+            .catch(function (error) {
+            console.log(error);
+            setWebsite(prev => {
+                return {...prev, isGood: false, loading: false, }
+            })
+            });
+        
+        axios(corsAnywhere + support.link)
+            .then(function (response) {
+            if (response.statusText === 'OK'){
+                setSupport(prev => {
+                    return {...prev, isGood: true, loading: false, }
+                })
+            } else {
+                setSupport(prev => {
+                    return {...prev, isGood: false, loading: false, }
+                })
+            }
+            })
+            .catch(function (error) {
+            console.log(error);
+            setSupport(prev => {
+                return {...prev, isGood: false, loading: false, }
+            })
+            });
+
+        setIncident(() => {
+            return {...apiDemo.incident}
+        })
+
+        
+        setGlobal(() => {
+            return {...apiDemo.regions.Global}
+        });
+
+        setAMS2(() => {
+            return {...apiDemo.regions.AMS2}
+        });
+
+        setAMS3(() => {
+            return {...apiDemo.regions.AMS3}
+        });
+
+        setBLR1(() => {
+            return {...apiDemo.regions.BLR1}
+        });
+
+        setFRA1(() => {
+            return {...apiDemo.regions.FRA1}
+        });
+
+        setLON1(() => {
+            return {...apiDemo.regions.LON1}
+        });
+
+        setNYC1(() => {
+            return {...apiDemo.regions.NYC1}
+        });
+
+        setNYC2(() => {
+            return {...apiDemo.regions.NYC2}
+        });
+
+        // setNYC3(() => {
+        //     return {...apiDemo.regions.NYC3}
+        // });
+
+        // setSFO1(() => {
+        //     return {...apiDemo.regions.SFO1}
+        // });
+
+        // setSFO2(() => {
+        //     return {...apiDemo.regions.SFO2}
+        // });
+
+        // setSFO3(() => {
+        //     return {...apiDemo.regions.SFO3}
+        // });
+
+        // setSGP1(() => {
+        //     return {...apiDemo.regions.SGP1}
+        // });
+
+        // setTOR1(() => {
+        //     return {...apiDemo.regions.TOR1}
+        // });
 
             
-            setGlobal(() => {
-                return {...apiDemo.regions.Global}
-            });
+        }
+        
+    , [])
 
-            setAMS2(() => {
-                return {...apiDemo.regions.AMS2}
-            });
-
-            setAMS3(() => {
-                return {...apiDemo.regions.AMS3}
-            });
-
-            setBLR1(() => {
-                return {...apiDemo.regions.BLR1}
-            });
-
-            setFRA1(() => {
-                return {...apiDemo.regions.FRA1}
-            });
-
-            setLON1(() => {
-                return {...apiDemo.regions.LON1}
-            });
-
-            setNYC1(() => {
-                return {...apiDemo.regions.NYC1}
-            });
-
-            setNYC2(() => {
-                return {...apiDemo.regions.NYC2}
-            });
-
-            // setNYC3(() => {
-            //     return {...apiDemo.regions.NYC3}
-            // });
-
-            // setSFO1(() => {
-            //     return {...apiDemo.regions.SFO1}
-            // });
-
-            // setSFO2(() => {
-            //     return {...apiDemo.regions.SFO2}
-            // });
-
-            // setSFO3(() => {
-            //     return {...apiDemo.regions.SFO3}
-            // });
-
-            // setSGP1(() => {
-            //     return {...apiDemo.regions.SGP1}
-            // });
-
-            // setTOR1(() => {
-            //     return {...apiDemo.regions.TOR1}
-            // });
-
-            setLoading(false); 
-    
-        }, 1000);
-    }, [])
-
-    useEffect(() => {
+    useEffect(() => {   
+        let isAllSystemsLoaded = (allSystems.every(system => !(system.loading)));
         let isAllSystemsGood = (allSystems.every(system => (system.isGood)));
+       
        // let isAllRegionsGood = (allRegions.every(region => (region.isGood)));
-        if(isAllSystemsGood) {
+        if(isAllSystemsGood && isAllSystemsLoaded) {
             setAllSystemsStatus(() => {
                 return {isGood: true}
             })
-        } else {
+            setLoading(false); 
+        } else if (isAllSystemsLoaded) {
             setAllSystemsStatus(() => {
                 return {isGood: false}
             })
+            setLoading(false); 
         }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    
     }, [application, dashboard, website, support, loading])
     
-   
-
     return (
         <Provider value={{  
                             allSystems, 
@@ -152,3 +227,4 @@ export default function AppContexts({ children }) {
         </Provider>
     )
 }
+
