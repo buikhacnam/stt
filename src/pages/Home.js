@@ -23,9 +23,7 @@ export default function Home() {
                 <MainContainer>
                     <ContentWrapper>
                         <Incidents />
-                        <div>
-                            <AllSystemsStatus />
-                        </div>
+                        <AllSystemsStatus />
                         <AllRegionsStatus />
                     </ContentWrapper>
                 </MainContainer>

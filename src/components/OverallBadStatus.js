@@ -6,7 +6,7 @@ export default function OverallGoodStatus() {
         <StatusWrapper>
             <Status>
                 <div style={{margin: 'auto 0'}}>The system is doing some maintenance</div>
-                <div><img src='../favicon.png' alt='logo' height='40px' style={{float: 'right'}}/></div>
+                <div><img src='../favicon.png' alt='logo' height='50px' style={{float: 'right'}}/></div>
             </Status>
         </StatusWrapper>
     )
@@ -14,13 +14,13 @@ export default function OverallGoodStatus() {
 
 const StatusWrapper = styled.div`
     background-color: #B98900;
-    border: 2px solid #725402;
+    border: 1px solid #aa7d00;
     color: white;
     border-radius: 3px;
 `
 const Status = styled.div`
-    padding: 0.8rem 1.5rem;
-    font-size: 1.8rem;
+   padding: 0.6rem 1.5rem;
+    font-size: 2rem;
     font-weight: 600;
     display: grid;
     grid-template-columns: 1fr 1fr;

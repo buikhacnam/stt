@@ -18,4 +18,5 @@ export default function OverallStatement() {
 const OverallStatementStyled = styled.div`
     margin: 0 auto;
     width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 `

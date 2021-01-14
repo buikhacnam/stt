@@ -12,15 +12,15 @@ export default function Admin({system}) {
             {system.isGood? 
                 <Card 
                     type="inner" 
-                    title={<a href='#' style={{'cursor': 'default', 'color': '#282C70'}}>{system.name}</a>}
-                    extra={<CheckOutlined style={{color:"#7ED321",}}/>}
-                    style={{cursor: 'default'}}
+                    title={<a href={system.link} style={{'color': '#282C70'}}>{system.name}</a>}
+                    extra={<CheckOutlined style={{color:"#00B700",}}/>}
+                    style={{cursor: 'default', boxShadow: 'rgba(0, 0, 0, 0.16) 0px 1px 4px'}}
                 >
                     <CardContent>
                         <div>
                             No known issues
                         </div>
-                        <Operational style={{color: '#71BF60'}}>
+                        <Operational style={{color: '#00B700'}}>
                             <p>Operational</p>
                         </Operational>
                     </CardContent>
@@ -30,7 +30,7 @@ export default function Admin({system}) {
                     type="inner" 
                     title={system.name} 
                     extra={<WarningOutlined style={{color:"#B98900",}}/>}
-                    style={{cursor: 'default'}}
+                    style={{cursor: 'default', boxShadow: 'rgba(0, 0, 0, 0.16) 0px 1px 4px'}}
                 >
                     <CardContent>
                         <div>

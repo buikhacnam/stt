@@ -16,5 +16,5 @@ export default function AllSystemsStatus() {
 
 const SystemsWrapper = styled.div`
     display: grid;
-    gap: 20px;
+    gap: 26px;
 `

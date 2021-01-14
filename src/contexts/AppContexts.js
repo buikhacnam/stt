@@ -3,6 +3,7 @@
 import React, {createContext, useState, useEffect}from 'react';
 import { apiDemo } from '../apiDemo/apiDemo';
 import axios from 'axios';
+import Client from '../Contenful';
 
 export const StatusContext = createContext();
 const { Provider } = StatusContext;
@@ -23,20 +24,26 @@ export default function AppContexts({ children }) {
         name: "Application", 
         link:"https://apps.pagefly.io/",
         loading: true,});
-    const [dashboard, setDashboard] = useState({isGood: true,
-        name: "Dashboard", 
+    const [document, setDocument] = useState({isGood: true,
+        name: "Document", 
         link: "https://help.pagefly.io/",
         loading: true,});
-    const [website, setWebsite] = useState({isGood: true,
-        name: "Website", 
-        link: 'https://pagefly.io/',
+    const [academy, setAcademy] = useState({isGood: true,
+        name: "Academy", 
+        link: 'https://academy.pagefly.io/',
         loading: true,});
     const [support, setSupport] = useState({isGood: true,
         name: "Live Support", 
-        link: crispConfig,
+        link: '#',
         loading: true,});
+    const [partners, setPartners] = useState({isGood: true,
+        name: "Partners", 
+        link: 'https://partners.pagefly.io/',
+        loading: true,});
+
     // incident
-    const [incident, setIncident] = useState({})
+    const [incident, setIncident] = useState([]);
+
     //regions
     const[Global, setGlobal] = useState({});
     const[AMS2, setAMS2] = useState({});
@@ -46,9 +53,9 @@ export default function AppContexts({ children }) {
     const[LON1, setLON1] = useState({});
     const[NYC1, setNYC1] = useState({});
     const[NYC2, setNYC2] = useState({});
-    // const[NYC3, setNYC3] = useState({});
-    // const[SFO1, setSFO1] = useState({});
-    // const[SFO2, setSFO2] = useState({});
+    const[NYC3, setNYC3] = useState({});
+    const[SFO1, setSFO1] = useState({});
+    const[SFO2, setSFO2] = useState({});
     // const[SFO3, setSFO3] = useState({});
     // const[SGP1, setSGP1] = useState({});
     // const[TOR1, setTOR1] = useState({});
@@ -57,16 +64,22 @@ export default function AppContexts({ children }) {
     
     const [loading, setLoading] = useState(true);
 
-    const allSystems = [application, support, dashboard, website ];
-    const allRegions = [Global, AMS2, AMS3, BLR1, FRA1, LON1, NYC1, NYC2,];
-    // cut off: SFO1, SFO2, SFO3, SGP1, TOR1, NYC3
+    const allSystems = [application, support, document, academy, partners, ];
+    const allRegions = [Global, AMS2, AMS3, BLR1, FRA1, LON1, NYC1, NYC2,SFO1, SFO2, NYC3,];
+    // cut off: SFO3, SGP1, TOR1, 
 
     useEffect(() => {
         const corsAnywhere = 'https://cors-anywhere.herokuapp.com/';
 
+        //Fetch incidents from Contenful that MrQuyet updates.
+        Client.getEntries()
+            .then(res => {
+                setIncident(res.items)
+            })
+            .catch(console.error)
+
         axios(corsAnywhere + application.link)
             .then(function (response) {
-                console.log('response', response);
             if (response.statusText === 'OK'){
                 setApplication(prev => {
                     return {...prev, isGood: true, loading: false, }
@@ -75,6 +88,7 @@ export default function AppContexts({ children }) {
                 setApplication(prev => {
                     return {...prev, isGood: false, loading: false, }
                 })
+                console.log('bad');
             }
             })
             .catch(function (error) {
@@ -84,29 +98,28 @@ export default function AppContexts({ children }) {
             })
             });
 
-        axios(corsAnywhere + dashboard.link)
+        axios(corsAnywhere + document.link)
             .then(function (response) {
-                console.log('response', response);
             if (response.statusText === 'OK'){
-                setDashboard(prev => {
+                setDocument(prev => {
                     return {...prev, isGood: true, loading: false, }
                 })
             } else {
-                setDashboard(prev => {
+                setDocument(prev => {
                     return {...prev, isGood: false, loading: false, }
                 })
+                console.log('bad');
             }
             })
             .catch(function (error) {
             console.log(error);
-            setDashboard(prev => {
+            setDocument(prev => {
                 return {...prev, isGood: false, loading: false, }
             })
             });
         
-        axios(corsAnywhere + support.link)
+        axios(corsAnywhere + crispConfig)
             .then(function (response) {
-                console.log('response', response);
             if (response.statusText === 'OK'){
                 setSupport(prev => {
                     return {...prev, isGood: true, loading: false, }
@@ -115,6 +128,7 @@ export default function AppContexts({ children }) {
                 setSupport(prev => {
                     return {...prev, isGood: false, loading: false, }
                 })
+                console.log('bad');
             }
             })
             .catch(function (error) {
@@ -124,29 +138,45 @@ export default function AppContexts({ children }) {
             })
             });
         
-        axios(corsAnywhere + website.link)
+        axios(corsAnywhere + academy.link)
             .then(function (response) {
-                console.log('response', response);
             if (response.statusText === 'OK'){
-                setWebsite(prev => {
+                setAcademy(prev => {
                     return {...prev, isGood: true, loading: false, }
                 })
             } else {
-                setWebsite(prev => {
+                setAcademy(prev => {
                     return {...prev, isGood: false, loading: false, }
                 })
+                console.log('bad');
             }
             })
             .catch(function (error) {
             console.log(error);
-            setWebsite(prev => {
+            setAcademy(prev => {
                 return {...prev, isGood: false, loading: false, }
             })
             });
-
-        setIncident(() => {
-            return {...apiDemo.incident}
-        })
+        
+        axios(corsAnywhere + partners.link)
+            .then(function (response) {
+            if (response.statusText === 'OK'){
+                setPartners(prev => {
+                    return {...prev, isGood: true, loading: false, }
+                })
+            } else {
+                setPartners(prev => {
+                    return {...prev, isGood: false, loading: false, }
+                })
+                console.log('bad');
+            }
+            })
+            .catch(function (error) {
+            console.log(error);
+            setPartners(prev => {
+                return {...prev, isGood: false, loading: false, }
+            })
+            });
 
         
         setGlobal(() => {
@@ -181,17 +211,17 @@ export default function AppContexts({ children }) {
             return {...apiDemo.regions.NYC2}
         });
 
-        // setNYC3(() => {
-        //     return {...apiDemo.regions.NYC3}
-        // });
+        setNYC3(() => {
+            return {...apiDemo.regions.NYC3}
+        });
 
-        // setSFO1(() => {
-        //     return {...apiDemo.regions.SFO1}
-        // });
+        setSFO1(() => {
+            return {...apiDemo.regions.SFO1}
+        });
 
-        // setSFO2(() => {
-        //     return {...apiDemo.regions.SFO2}
-        // });
+        setSFO2(() => {
+            return {...apiDemo.regions.SFO2}
+        });
 
         // setSFO3(() => {
         //     return {...apiDemo.regions.SFO3}
@@ -223,7 +253,7 @@ export default function AppContexts({ children }) {
             setLoading(false); 
         }
     
-    }, [application, dashboard, website, support, loading])
+    }, [application, document, academy, support, partners, loading])
     
     return (
         <Provider value={{  
@@ -231,6 +261,7 @@ export default function AppContexts({ children }) {
                             allRegions, 
                             allSystemsStatus, 
                             incident,
+                            setIncident,
                             loading,
                         }}>
             {children}
