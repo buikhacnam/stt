@@ -75,6 +75,7 @@ export default function AppContexts({ children }) {
         Client.getEntries()
             .then(res => {
                 setIncident(res.items)
+                console.log(res.items)
             })
             .catch(console.error)
 

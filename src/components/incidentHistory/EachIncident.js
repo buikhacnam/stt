@@ -12,20 +12,26 @@ export default function EachIncident({eachIncident}) {
                 extra={eachIncident.fields.date}
             >
                 <Collapse
-                        bordered={false}
-                        defaultActiveKey={['1',]}
-                        expandIcon={({ isActive }) => <CaretRightOutlined rotate={isActive ? 90 : 0} />}
-                        ghost
-                    >
-                        <Panel header={<h4>Resolved</h4>} key="1">
-                         <p>{eachIncident.fields.resolved}</p>
-                        </Panel>
-                        <Panel header={<h4>Monitoring</h4>} key="2">
-                         <p>{eachIncident.fields.monitoring}</p>
-                        </Panel>
-                        <Panel header={<h4>Identified</h4>} key="3">
-                          <p>{eachIncident.fields.identified}</p>
-                        </Panel>
+                    bordered={false}
+                    defaultActiveKey={['1']}
+                    expandIcon={({ isActive }) => <CaretRightOutlined rotate={isActive ? 90 : 0} />}
+                    ghost
+                >
+                    {eachIncident.fields.resolved && 
+                    <Panel header={<h3>Resolved</h3>} key="1">
+                        <p>{eachIncident.fields.resolved}</p>
+                    </Panel>
+                    }
+                    {eachIncident.fields.monitoring &&
+                    <Panel header={<h3>Monitoring</h3>} key="2">
+                        <p>{eachIncident.fields.monitoring}</p>
+                    </Panel>
+                    }
+                    {eachIncident.fields.identified &&
+                    <Panel header={<h3>Identified</h3>} key="3">
+                        <p>{eachIncident.fields.identified}</p>
+                    </Panel>
+                    }
                         
                 </Collapse>
             </Card>

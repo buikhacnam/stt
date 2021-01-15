@@ -25,7 +25,8 @@ export default function Incidents() {
 
     return (
         <IncidentsWrapper>
-            {incident && 
+            {(incident && incident.resolved)
+            ?
             <Card 
                 size="default" 
                 title="Last Incident"   
@@ -42,6 +43,32 @@ export default function Incidents() {
                     <Link  to="/incidents">Lastest Status History</Link>
                 </Button>
             </Card>
+            :(incident && !incident.resolved)?
+            <Card 
+                size="default" 
+                title="Last Incident"   
+                bordered={false} 
+                extra={incident.fields.date} 
+                style={{ width: 250, }}
+            >
+                <h4 style={{color: '#282C70'}}>{incident.fields.title}</h4>
+                <p>{incident.fields.identified}</p>
+               
+                <Button>
+                    <Link  to="/incidents">Lastest Status History</Link>
+                </Button>
+            </Card>
+            :
+            <Card 
+                size="default" 
+                title="Last Incident"   
+                bordered={false} 
+                extra={incident.fields.date} 
+                style={{ width: 250, }}
+            >
+             <h4 style={{color: '#282C70'}}>No incident</h4> 
+            </Card>
+
             }
             <Modal title={incident.fields.title} visible={isModalVisible} onOk={handleOk} onCancel={handleCancel} width={1000}>
                     <Collapse
@@ -50,15 +77,21 @@ export default function Incidents() {
                         expandIcon={({ isActive }) => <CaretRightOutlined rotate={isActive ? 90 : 0} />}
                         ghost
                     >
+                        {incident.fields.resolved && 
                         <Panel header={<h3>Resolved</h3>} key="1">
-                        <p>{incident.fields.resolved}</p>
+                         <p>{incident.fields.resolved}</p>
                         </Panel>
+                        }
+                        {incident.fields.monitoring &&
                         <Panel header={<h3>Monitoring</h3>} key="2">
-                        <p>{incident.fields.monitoring}</p>
+                         <p>{incident.fields.monitoring}</p>
                         </Panel>
+                        }
+                        {incident.fields.identified &&
                         <Panel header={<h3>Identified</h3>} key="3">
-                        <p>{incident.fields.identified}</p>
+                          <p>{incident.fields.identified}</p>
                         </Panel>
+                        }
                         
                     </Collapse>
             </Modal>
