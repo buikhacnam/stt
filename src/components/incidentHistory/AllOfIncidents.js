@@ -26,4 +26,5 @@ const AllIncidentWrapper = styled.div`
     display: grid;
     gap: 2rem;
     padding-bottom: 3rem;
+    justify-content: center;
 `

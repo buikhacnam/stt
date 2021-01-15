@@ -27,9 +27,9 @@ export default function IncidentHistory() {
 }
 
 const HistoryStyled = styled.div`
-    margin: 0 auto;
-    width: 85vw;
     padding-top: 2rem;
+    display: grid;
+    justify-content: center;
 `
 const SpinWrapper = styled.div`
  position: relative;

@@ -36,25 +36,18 @@ export default function Home() {
 const Container = styled.div `
     padding-top: 2rem;
     display: grid;
-    justify-content: center;
-    width: 90vw;
-    margin: 0 auto;
 `
 
 const MainContainer = styled.div`
   display: grid;
-  justify-content: center;
   padding-top: 3rem;
   padding-bottom: 2rem;
-
 `
 const ContentWrapper = styled.div`
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
-    gap: 2rem;
-    @media (max-width: 700px) {
-        grid-template: none;
-    }
+    column-gap: 2rem;
+    
    
 `
 
