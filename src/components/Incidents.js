@@ -25,7 +25,7 @@ export default function Incidents() {
 
     return (
         <IncidentsWrapper>
-            {(incident && incident.resolved)
+            {(incident && incident.fields.resolved)
             ?
             <Card 
                 size="default" 
@@ -35,7 +35,7 @@ export default function Incidents() {
                 style={{ width: 250, }}
             >
                 <h4 style={{color: '#282C70'}}>{incident.fields.title}</h4>
-                <p>{incident.fields.resolved}</p>
+                <p><strong>Resolved -&nbsp;</strong>{incident.fields.resolved}</p>
                 <Button type="link" onClick={showModal} style={{paddingLeft: 0, marginBottom: '2rem'}}>
                         Incident Details
                 </Button>
@@ -43,7 +43,7 @@ export default function Incidents() {
                     <Link  to="/incidents">Lastest Status History</Link>
                 </Button>
             </Card>
-            :(incident && !incident.resolved)?
+            :(incident && !incident.fields.resolved)?
             <Card 
                 size="default" 
                 title="Last Incident"   

@@ -15,7 +15,7 @@ export default function AllOfIncidents() {
                     return <EachIncident key={eachIncident.date} eachIncident={eachIncident} />
                 })
                 :
-                <Button><Link  to="/incidents">Back</Link></Button>
+                <Button><Link  to="/">Back</Link></Button>
             }
             
         </AllIncidentWrapper>
