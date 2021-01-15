@@ -31,7 +31,6 @@ const academyConfig = {
     url: 'https://academy.pagefly.io/',
     headers: {
         'Access-Control-Allow-Origin': 'https://pagefly.io/',
-        'Access-Control-Allow-Credentials': true
     }
 }
 

@@ -22,4 +22,5 @@ export default App;
 const Body = styled.div`
   margin: 0 auto;
   width: 80vw;
+  padding-bottom: 2rem;
 `
