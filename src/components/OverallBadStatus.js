@@ -6,7 +6,7 @@ export default function OverallGoodStatus() {
         <StatusWrapper>
             <Status>
                 <div style={{margin: 'auto 0'}}>The system is doing some maintenance</div>
-                <div><img src='../favicon.png' alt='logo' height='50px' style={{float: 'right'}}/></div>
+                
             </Status>
         </StatusWrapper>
     )

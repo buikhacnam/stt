@@ -15,10 +15,6 @@ export default function Incidents() {
       setIsModalVisible(true);
     };
   
-    const handleOk = () => {
-      setIsModalVisible(false);
-    };
-  
     const handleCancel = () => {
       setIsModalVisible(false);
     };
@@ -70,7 +66,14 @@ export default function Incidents() {
             </Card>
 
             }
-            <Modal title={incident.fields.title} visible={isModalVisible} onOk={handleOk} onCancel={handleCancel} width={1000}>
+            <Modal  title={incident.fields.title} 
+                    visible={isModalVisible}  
+                    onCancel={handleCancel} 
+                    width={1000} 
+                    footer={[
+                        <Button key="back" onClick={handleCancel}>
+                            Close
+                        </Button>]}>
                     <Collapse
                         bordered={false}
                         defaultActiveKey={['1']}
