@@ -22,7 +22,7 @@ const applicationConfig = {
     method: 'get',
     url: 'https://apps.pagefly.io/',
     headers: {
-        'Access-Control-Allow-Origin': 'https://pagefly.io/'
+        'Access-Control-Allow-Origin': 'https://stt.netlify.app'
     }
 }
 
@@ -30,7 +30,7 @@ const academyConfig = {
     method: 'get',
     url: 'https://academy.pagefly.io/',
     headers: {
-        'Access-Control-Allow-Origin': 'https://pagefly.io/',
+        'Access-Control-Allow-Origin': 'https://stt.netlify.app',
     }
 }
 
@@ -38,7 +38,7 @@ const documentConfig = {
     method: 'get',
     url: 'https://help.pagefly.io/',
     headers: {
-        'Access-Control-Allow-Origin': 'https://pagefly.io/'
+        'Access-Control-Allow-Origin': 'https://stt.netlify.app'
     }
 }
 
@@ -46,7 +46,7 @@ const partnerConfig = {
     method: 'get',
     url: 'https://partners.pagefly.io/',
     headers: {
-        'Access-Control-Allow-Origin': 'https://pagefly.io/'
+        'Access-Control-Allow-Origin': 'https://stt.netlify.app'
     }
 }
 
@@ -156,7 +156,7 @@ export default function AppContexts({ children }) {
             })
             });
         
-        axios(corsAnywhere + crispConfig)
+        axios(corsAnywhere+crispConfig)
             .then(function (response) {
             if (response.statusText === 'OK'){
                 setSupport(prev => {
