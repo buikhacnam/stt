@@ -14,7 +14,7 @@ export default function Home() {
         {loading? 
             <SpinWrapper>
                 <SpinStyle>
-                     <Spin />
+                     <Spin tip="It may take a few moments to check"/>
                 </SpinStyle>  
             </SpinWrapper>
             :
