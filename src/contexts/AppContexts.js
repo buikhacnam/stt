@@ -22,7 +22,7 @@ const applicationConfig = {
     method: 'get',
     url: 'https://apps.pagefly.io/',
     headers: {
-        'Access-Control-Allow-Origin': 'https://apps.pagefly.io/'
+        'Access-Control-Allow-Origin': 'https://pagefly.io/'
     }
 }
 
@@ -30,7 +30,8 @@ const academyConfig = {
     method: 'get',
     url: 'https://academy.pagefly.io/',
     headers: {
-        'Access-Control-Allow-Origin': 'https://academy.pagefly.io/'
+        'Access-Control-Allow-Origin': 'https://pagefly.io/',
+        'Access-Control-Allow-Credentials': true
     }
 }
 
@@ -38,7 +39,7 @@ const documentConfig = {
     method: 'get',
     url: 'https://help.pagefly.io/',
     headers: {
-        'Access-Control-Allow-Origin': 'https://help.pagefly.io/'
+        'Access-Control-Allow-Origin': 'https://pagefly.io/'
     }
 }
 
@@ -46,7 +47,7 @@ const partnerConfig = {
     method: 'get',
     url: 'https://partners.pagefly.io/',
     headers: {
-        'Access-Control-Allow-Origin': 'https://partners.pagefly.io/'
+        'Access-Control-Allow-Origin': 'https://pagefly.io/'
     }
 }
 
