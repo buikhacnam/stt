@@ -18,26 +18,63 @@ const crispConfig = {
     }
 };
 
+const applicationConfig = {
+    method: 'get',
+    url: 'https://apps.pagefly.io/',
+    headers: {
+        'Access-Control-Allow-Origin': 'https://apps.pagefly.io/'
+    }
+}
+
+const academyConfig = {
+    method: 'get',
+    url: 'https://academy.pagefly.io/',
+    headers: {
+        'Access-Control-Allow-Origin': 'https://academy.pagefly.io/'
+    }
+}
+
+const documentConfig = {
+    method: 'get',
+    url: 'https://help.pagefly.io/',
+    headers: {
+        'Access-Control-Allow-Origin': 'https://help.pagefly.io/'
+    }
+}
+
+const partnerConfig = {
+    method: 'get',
+    url: 'https://partners.pagefly.io/',
+    headers: {
+        'Access-Control-Allow-Origin': 'https://partners.pagefly.io/'
+    }
+}
+
 export default function AppContexts({ children }) {
    //main
     const [application, setApplication] = useState({isGood: true,
         name: "Application", 
-        link:"https://apps.pagefly.io/",
+        config: applicationConfig,
+        link: 'https://apps.pagefly.io/',
         loading: true,});
     const [document, setDocument] = useState({isGood: true,
         name: "Document", 
-        link: "https://help.pagefly.io/",
+        config: documentConfig,
+        link: 'https://help.pagefly.io/',
         loading: true,});
     const [academy, setAcademy] = useState({isGood: true,
         name: "Academy", 
+        config: academyConfig,
         link: 'https://academy.pagefly.io/',
         loading: true,});
     const [support, setSupport] = useState({isGood: true,
         name: "Live Support", 
+        config: crispConfig,
         link: '#',
         loading: true,});
     const [partners, setPartners] = useState({isGood: true,
         name: "Partners", 
+        config: partnerConfig,
         link: 'https://partners.pagefly.io/',
         loading: true,});
 
@@ -79,7 +116,7 @@ export default function AppContexts({ children }) {
             })
             .catch(console.error)
 
-        axios(corsAnywhere + application.link)
+        axios(corsAnywhere + application.config)
             .then(function (response) {
             if (response.statusText === 'OK'){
                 setApplication(prev => {
@@ -99,7 +136,7 @@ export default function AppContexts({ children }) {
             })
             });
 
-        axios(corsAnywhere + document.link)
+        axios(corsAnywhere + document.config)
             .then(function (response) {
             if (response.statusText === 'OK'){
                 setDocument(prev => {
@@ -139,7 +176,7 @@ export default function AppContexts({ children }) {
             })
             });
         
-        axios(corsAnywhere + academy.link)
+        axios(corsAnywhere + academy.config)
             .then(function (response) {
             if (response.statusText === 'OK'){
                 setAcademy(prev => {
@@ -159,7 +196,7 @@ export default function AppContexts({ children }) {
             })
             });
         
-        axios(corsAnywhere + partners.link)
+        axios(corsAnywhere + partners.config)
             .then(function (response) {
             if (response.statusText === 'OK'){
                 setPartners(prev => {
