@@ -14,3 +14,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.subscribe-container__submit {
+  background-color:#5555FF !important;
+  border: none !important;
+}
+
+.subscribe-container__submit:hover {
+  background-color:#7474f7 !important;
+}

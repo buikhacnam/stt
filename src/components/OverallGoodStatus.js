@@ -5,8 +5,7 @@ export default function OverallGoodStatus() {
     return (
         <StatusWrapper>
             <Status>
-                <div style={{margin: 'auto 0'}}>All systems are operational</div>
-                
+               All systems are operational 
             </Status>
         </StatusWrapper>
     )
@@ -23,8 +22,6 @@ const Status = styled.div`
     font-size: 2rem;
     font-weight: 600;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    justify-content: 'space-between';
     @media (max-width: 700px) {
         font-size: 1.4rem;
     }

@@ -5,8 +5,7 @@ export default function OverallGoodStatus() {
     return (
         <StatusWrapper>
             <Status>
-                <div style={{margin: 'auto 0'}}>The system is doing some maintenance</div>
-                
+                The system is doing some maintenance
             </Status>
         </StatusWrapper>
     )
@@ -19,12 +18,10 @@ const StatusWrapper = styled.div`
     border-radius: 3px;
 `
 const Status = styled.div`
-   padding: 0.6rem 1.5rem;
+    padding: 0.6rem 1.5rem;
     font-size: 2rem;
     font-weight: 600;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    justify-content: 'space-between';
     @media (max-width: 700px) {
         font-size: 1.4rem;
     }

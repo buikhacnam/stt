@@ -37,10 +37,10 @@ export default function Header() {
                             Close
                         </Button>]}>
                         <div style={{paddingTop: '1rem'}}>
-                            <ReactMailchimpEmailSignupForm
+                            <ReactMailchimpEmailSignupForm onSubmit={handleCancel}
                                 elementId="first-email-signup-form"
-                                url="https://bravebits.us7.list-manage.com/subscribe/post?u=c5d41bb6ccd71998db0663cca&id=2530aae49c"
-                                title="Subscribe to update"
+                                url="https://bravebits.us7.list-manage.com/subscribe/post?u=c5d41bb6ccd71998db0663cca&id=be13019cb2"
+                                title="Subscribe to updates"
                                 subtitle="Get email notifications whenever PageFly creates, updates or resolves an incident."
                             />
                         </div>
