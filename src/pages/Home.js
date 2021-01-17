@@ -47,6 +47,9 @@ const ContentWrapper = styled.div`
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
     column-gap: 2rem;
+    @media (max-width: 700px) {
+        grid-template: none;
+    }
 `
 
 const SpinWrapper = styled.div`
