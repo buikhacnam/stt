@@ -28,7 +28,6 @@ export default function Incidents() {
                 title="Last Incident"   
                 bordered={false} 
                 extra={incident.fields.date} 
-                style={{ width: 250, }}
             >
                 <h4 style={{color: '#282C70'}}>{incident.fields.title}</h4>
                 <p><strong>Resolved -&nbsp;</strong>{incident.fields.resolved}</p>
