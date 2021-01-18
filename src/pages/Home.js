@@ -46,7 +46,7 @@ const MainContainer = styled.div`
 const ContentWrapper = styled.div`
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
-    column-gap: 2rem;
+    gap: 2rem;
     @media (max-width: 900px) {
         grid-template: none;
     }
