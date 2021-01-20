@@ -6,6 +6,7 @@ import Incidents from '../components/Incidents'
 import {StatusContext} from '../contexts/AppContexts'
 import styled from 'styled-components'
 import { Spin } from 'antd';
+import Welcome from '../components/Welcome'
 
 export default function Home() {
     const {loading} = useContext(StatusContext)
@@ -20,6 +21,7 @@ export default function Home() {
             :
             <Container>
                 <OverallStatement />
+                <Welcome />
                 <MainContainer>
                     <ContentWrapper>
                         <Incidents />

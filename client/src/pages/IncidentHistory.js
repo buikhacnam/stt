@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect} from 'react';
 import AllOfIncidents from '../components/incidentHistory/AllOfIncidents';
 import OverallStatement from '../components/OverallStatement';
 import styled from 'styled-components';
@@ -6,7 +6,10 @@ import {StatusContext} from '../contexts/AppContexts'
 import { Spin } from 'antd';
 
 export default function IncidentHistory() {
-    const {loading} = useContext(StatusContext)
+    const {loading} = useContext(StatusContext);
+    useEffect(()=> {
+        window.scrollTo(0,0)
+    }, [])
     return (
         <>
         {loading? 

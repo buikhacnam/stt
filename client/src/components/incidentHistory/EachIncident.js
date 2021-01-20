@@ -18,7 +18,7 @@ export default function EachIncident({eachIncident}) {
                     ghost
                 >
                     {eachIncident.fields.resolved && 
-                    <Panel header={<h3>Resolved</h3>} key="1">
+                    <Panel header={<h4>Resolved</h4>} key="1">
                         <p>{eachIncident.fields.resolved}</p>
                     </Panel>
                     }

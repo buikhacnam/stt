@@ -25,7 +25,7 @@ export default function Header() {
                 </div>
                 <div>
                     <Button size='large' type="primary" onClick={showModal} style={{'float': 'right', backgroundColor: '#5555FF', outline : 'none', border: 'none'}}>
-                            Subscribe for update
+                            Subscribe for updates
                     </Button>
                 </div>
             </NavStyled>
@@ -40,7 +40,7 @@ export default function Header() {
                             <ReactMailchimpEmailSignupForm onSubmit={handleCancel}
                                 elementId="first-email-signup-form"
                                 url="https://bravebits.us7.list-manage.com/subscribe/post?u=c5d41bb6ccd71998db0663cca&id=be13019cb2"
-                                title="Subscribe to updates"
+                                title="Subscribe for updates"
                                 subtitle="Get email notifications whenever PageFly creates, updates or resolves an incident."
                             />
                         </div>
