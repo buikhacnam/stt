@@ -1,27 +1,31 @@
-import { Button } from 'antd';
+
 import React from 'react';
+import OverallStatement from '../components/OverallStatement';
+import Header from '../components/Header';
 import styled from 'styled-components';
 
 export default function Welcome() {
-    const linkPageFly = 'https://apps.shopify.com/pagefly?surface_detail=pagefly&surface_inter_position=1&surface_intra_position=1&surface_type=search';
     return (
+        <div>
         <WelcomeWrapper>
+            <Header />
             <p>PageFly serves over 80,000 Shopify and Shopify Plus merchants with 4.9 / 5 rating.</p>
-            <div style={{display: 'grid', justifyContent: 'center'}}>
-                <a href={linkPageFly}><Button size="small" style={{color: '#5555FF'}}>Install Pagefly</Button></a>
-            </div>
         </WelcomeWrapper>
+        <OverallStatement />
+        </div>
     )
 }
 
 const WelcomeWrapper = styled.div `
-    background-color: #5555FF;
-    color: #ffffff;
+    color: #5555FF;
+    background-color: #ffffff;
     margin-top: 2rem;
-    padding: 0.5rem 0.5rem;
+    padding: 3rem 2rem;
+    padding-top: 0.05rem;
     border-radius: 3px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     & p {
-        text-align: center;
+        font-weight: 400;
     }
+    
 `

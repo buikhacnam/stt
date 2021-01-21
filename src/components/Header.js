@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 import { ReactMailchimpEmailSignupForm } from "react-mailchimp-email-signup-form";
 import "react-mailchimp-email-signup-form/dist/react-mailchimp-email-signup-form.css";
 import { Modal, Button } from 'antd';
+const linkPageFly = 'https://apps.shopify.com/pagefly?utm_campaign=app-listing&utm_source=website&utm_medium=mainsite&utm_content=status-page';
 
 export default function Header() {
     const [isModalVisible, setIsModalVisible] = useState(false);
@@ -20,14 +21,17 @@ export default function Header() {
             <NavStyled>
                 <div>
                     <Link  to="/"> 
-                        <img src='/logostatus.svg' height="40" alt='logo'/>
+                        <img src='/logostatus.svg' height="40" alt='logo' style={{ marginBottom: '0.5rem'}}/>
                     </Link>
                 </div>
+               
                 <div>
-                    <Button size='large' type="primary" onClick={showModal} style={{'float': 'right', backgroundColor: '#5555FF', outline : 'none', border: 'none'}}>
+                    <Button type="primary" onClick={showModal} style={{'float': 'right', backgroundColor: '#5555FF', outline : 'none', border: 'none',marginLeft: '1rem', marginBottom: '0.5rem'}}>
                             Subscribe for updates
                     </Button>
+                    <Button type="primary" style={{'float': 'right', backgroundColor: '#5555FF', outline : 'none', border: 'none', }}><a href={linkPageFly}>Install Pagefly</a></Button>
                 </div>
+                
             </NavStyled>
             <Modal  
                     visible={isModalVisible}  
@@ -59,4 +63,7 @@ const NavStyled = styled.div`
    display: grid;
    grid-template-columns: 1fr 1fr;
    justify-content: space-between;
+   @media (max-width: 600px) {
+        grid-template: none;
+    }
 `

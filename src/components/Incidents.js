@@ -44,7 +44,6 @@ export default function Incidents() {
                 title="Last Incident"   
                 bordered={false} 
                 extra={incident.fields.date} 
-                style={{ width: 250, }}
             >
                 <h4 style={{color: '#282C70'}}>{incident.fields.title}</h4>
                 <p>{incident.fields.identified}</p>
@@ -59,7 +58,6 @@ export default function Incidents() {
                 title="Last Incident"   
                 bordered={false} 
                 extra={incident.fields.date} 
-                style={{ width: 250, }}
             >
              <h4 style={{color: '#282C70'}}>No incident</h4> 
             </Card>

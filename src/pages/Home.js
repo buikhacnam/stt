@@ -1,27 +1,16 @@
-import React , {useContext} from 'react'
-import OverallStatement from '../components/OverallStatement'
+import React from 'react'
 import AllSystemsStatus from '../components/AllSystemsStatus'
 import AllRegionsStatus from '../components/AllRegionsStatus'
 import Incidents from '../components/Incidents'
-import {StatusContext} from '../contexts/AppContexts'
 import styled from 'styled-components'
-import { Spin } from 'antd';
-import Welcome from '../components/Welcome'
+
+
 
 export default function Home() {
-    const {loading} = useContext(StatusContext)
+    
     return (
-        <>
-        {loading? 
-            <SpinWrapper>
-                <SpinStyle>
-                     <Spin tip="It may take a few moments to check"/>
-                </SpinStyle>  
-            </SpinWrapper>
-            :
+       
             <Container>
-                <OverallStatement />
-                <Welcome />
                 <MainContainer>
                     <ContentWrapper>
                         <Incidents />
@@ -30,8 +19,7 @@ export default function Home() {
                     </ContentWrapper>
                 </MainContainer>
             </Container>
-        }
-        </>
+        
     )
 }
 
@@ -52,15 +40,4 @@ const ContentWrapper = styled.div`
     @media (max-width: 900px) {
         grid-template: none;
     }
-`
-
-const SpinWrapper = styled.div`
- position: relative;
-`
-
-const SpinStyle = styled.div`
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
 `

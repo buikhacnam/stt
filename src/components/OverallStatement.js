@@ -17,6 +17,11 @@ export default function OverallStatement() {
 
 const OverallStatementStyled = styled.div`
     margin: 0 auto;
-    width: 100%;
+    width: 90%;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    margin-top: -2.5rem;
+    @media (max-width: 500px) {
+        margin-top: 1rem;
+        width: 100%;
+    }
 `
