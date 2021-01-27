@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import {Route, Switch} from 'react-router-dom';
-import Home from './pages/Home';
+
 import IncidentHistory from './pages/IncidentHistory';
 import styled from 'styled-components';
 import Welcome from './components/Welcome';
