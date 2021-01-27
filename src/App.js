@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import Welcome from './components/Welcome';
 import {StatusContext} from './contexts/AppContexts';
 import { Spin } from 'antd';
-
+import { Redirect } from "react-router-dom";
 
 function App() {
   const {loading} = useContext(StatusContext);
@@ -22,7 +22,9 @@ function App() {
      <Body> 
       <Welcome />
       <Switch>
-        <Route exact path='/' component={Home} />
+        <Route exact path='/'>
+           <Redirect to="/incidents" />
+        </Route>
         <Route exact path='/incidents' component={IncidentHistory} />
       </Switch>   
     </Body>

@@ -116,7 +116,7 @@ export default function AppContexts({ children }) {
             })
             .catch(console.error)
 
-        axios(corsAnywhere + application.config)
+        axios(corsAnywhere + application.link)
             .then(function (response) {
             if (response.statusText === 'OK'){
                 setApplication(prev => {
@@ -136,7 +136,7 @@ export default function AppContexts({ children }) {
             })
             });
 
-        axios(corsAnywhere + document.config)
+        axios(corsAnywhere + document.link)
             .then(function (response) {
             if (response.statusText === 'OK'){
                 setDocument(prev => {
@@ -176,7 +176,7 @@ export default function AppContexts({ children }) {
             })
             });
         
-        axios(corsAnywhere + academy.config)
+        axios(corsAnywhere + academy.link)
             .then(function (response) {
             if (response.statusText === 'OK'){
                 setAcademy(prev => {
@@ -196,7 +196,7 @@ export default function AppContexts({ children }) {
             })
             });
         
-        axios(corsAnywhere + partners.config)
+        axios(corsAnywhere + partners.link)
             .then(function (response) {
             if (response.statusText === 'OK'){
                 setPartners(prev => {
