@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
 import {Link} from 'react-router-dom';
-import { ReactMailchimpEmailSignupForm } from "react-mailchimp-email-signup-form";
+
 import "react-mailchimp-email-signup-form/dist/react-mailchimp-email-signup-form.css";
 import { Modal, Button } from 'antd';
 const linkPageFly = 'https://apps.shopify.com/pagefly?utm_campaign=app-listing&utm_source=website&utm_medium=mainsite&utm_content=status-page';
@@ -40,14 +40,24 @@ export default function Header() {
                         <Button key="back" onClick={handleCancel}>
                             Close
                         </Button>]}>
-                        <div style={{paddingTop: '1rem'}}>
-                            <ReactMailchimpEmailSignupForm onSubmit={handleCancel}
-                                elementId="first-email-signup-form"
-                                url="https://bravebits.us7.list-manage.com/subscribe/post?u=c5d41bb6ccd71998db0663cca&id=be13019cb2"
-                                title="Subscribe for updates"
-                                subtitle="Get email notifications whenever PageFly creates, updates or resolves an incident."
-                            />
-                        </div>
+                        
+                       
+                            <h2 style={{textAlign: 'center'}}>Subscribe for updates</h2>
+                            <p style={{textAlign: 'center', fontSize: '1rem'}}>Get email notifications whenever Pagefly creates, updates or resolves an incident.</p>
+                            <form action="https://email.pagefly.io/subscribe" method="POST" accept-charset="utf-8">
+                            
+                                	<input type="email" name="email" id="email"/><br/><div style={{display:"none"}}>
+	<label for="hp">HP</label><br/>
+	<input type="text" name="hp" id="hp"/>
+	</div>
+	<input type="hidden" name="list" value="IHlLSYELo7etbeMK892kPv4w"/>
+	<input type="hidden" name="subform" value="yes"/>
+	<input type="submit" name="submit" id="submit"/>
+	
+                            
+                        </form> 
+                        
+
                 </Modal>
         </HeaderStyled>
     )
