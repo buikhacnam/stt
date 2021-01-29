@@ -44,7 +44,7 @@ export default function Header() {
                        
                             <h2 style={{textAlign: 'center'}}>Subscribe for updates</h2>
                             <p style={{textAlign: 'center', fontSize: '1rem'}}>Get email notifications whenever Pagefly creates, updates or resolves an incident.</p>
-                            <form action="https://email.pagefly.io/subscribe" method="POST" accept-charset="utf-8">
+                            <form action="https://email.pagefly.io/subscribe" method="POST" accept-charset="utf-8" target="_blank">
                             
                                 	<input type="email" name="email" id="email"/><br/><div style={{display:"none"}}>
 	<label for="hp">HP</label><br/>
